@@ -7,6 +7,7 @@ vector<vector<int>> sequences;
 
 int n ;
 int a[100];
+bool used [15]={false};
 
 void DFS (int k ) {
 	if (k == n) {
@@ -14,19 +15,16 @@ void DFS (int k ) {
 		for (int i = 0; i < n ; i++) {
 			sequence.push_back(a[i]);
 		}
-		sequences.push_back(sequence);
-
-
-
-
-
-
+		sequences.push_back(sequence); 
 		return ;
 	}
 
 	for (int i = 1 ; i <= n ; i ++) {
+		if (used[i]) continue;
 		a[k] = i;
+		used[i]=true;
 		DFS(k + 1);
+		used[i]=false;
 	}
 }
 
