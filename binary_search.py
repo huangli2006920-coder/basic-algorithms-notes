@@ -2,7 +2,7 @@
 
 
 def binary_search(sorted_numbers, target):
-    """Return the index of target in sorted_numbers, or -1 if not found."""
+    """Return int index of target in a sorted list of comparable values, else -1."""
     # Start with pointers at both ends of the sorted list.
     left = 0
     right = len(sorted_numbers) - 1
@@ -10,7 +10,7 @@ def binary_search(sorted_numbers, target):
     # Keep searching while there is a valid search range.
     while left <= right:
         # Check the middle element of the current range.
-        mid = (left + right) // 2
+        mid = left + (right - left) // 2
 
         if sorted_numbers[mid] == target:
             # Target found.
