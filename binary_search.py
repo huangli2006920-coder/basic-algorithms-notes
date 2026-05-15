@@ -27,7 +27,7 @@ def binary_search(sorted_numbers, target):
 
 
 if __name__ == "__main__":
-    # Example usage.
+    # Example usage: target exists.
     data = [1, 3, 5, 7, 9, 11]
     item = 7
     result = binary_search(data, item)
@@ -36,3 +36,12 @@ if __name__ == "__main__":
         print(f"Found {item} at index {result}.")
     else:
         print(f"{item} was not found.")
+
+    # Example usage: target does not exist.
+    missing_item = 8
+    missing_result = binary_search(data, missing_item)
+
+    if missing_result != -1:
+        print(f"Found {missing_item} at index {missing_result}.")
+    else:
+        print(f"{missing_item} was not found.")
