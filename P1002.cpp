@@ -3,33 +3,29 @@
 using namespace std;
 
 int n, m ;
-vector<vector<int>> qipan (n, vector<int>(m));
+vector<vector<int>> qipan;
 int cnt = 0;
 
 
 int dx[8] = {-2, -1, 1, 2, 2, 1, -1, -2};
 int dy[8] = {-1, -2, -2, -1, 1, 2, 2, 1};
 
-void DFS(int k, int x, int y) {
+void DFS( int x, int y) {
 	if (x == n && y == m) {
 		cnt ++;
 		return;
 	}
-	if (y == m || qipan[][y + 1] == '1') {
-		return ;
+	if (y +1<= m || qipan[x][y + 1] == '1') {
+		DFS( x, y +1);
 
 	}
-	if (x == n || qipan[x + 1][] == '1') {
-		return ;
+	if (x +1<= n || qipan[x + 1][y] == '1') {
+		DFS(x+1, y );
 
 	}
-	for (int i = x ; i < n ; i ++) {
-		DFS(k, i + 1, y);
-		for (int j = y ; j < m ; j ++)
-			DFS( k, i, j + 1);
-		y++;
+	
 
-	}
+	
 
 
 
@@ -45,17 +41,18 @@ void DFS(int k, int x, int y) {
 int main(void) {
 	cin >> n, m;
 	int a, b ;
+	qipan.assign(n+1 , vector<int>(m+1 , 0 ));
 	cin >> a >> b ;
-	qipan[a][b] = '1';
+	qipan[a][b] = 1;
 	for (int k = 0 ; k < 8 ; k ++) {
 		int nx = a + dx[k];
 		int ny = b + dy[k];
 
 		if (nx > 0 && nx < n && ny > 0 && ny < m) {
-			qipan[nx][ny] = '1';
+			qipan[nx][ny] = 1;
 		}
 	}
-	DFS(0, 0, 0);
+	DFS(0, 0);
 	cout << cnt;
 
 
