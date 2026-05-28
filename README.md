@@ -1,2 +1,2 @@
-# basic-algorithms-notes
-My journey of mastering basic algorithms: implementations and notes.
+# fucking-algorithms-notes
+My journey of fucking mastering basic algorithms: implementations and shits.
